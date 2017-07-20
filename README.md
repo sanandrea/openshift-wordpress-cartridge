@@ -4,7 +4,7 @@ install with:
 `rhc app create website php-5.4 mysql-5.5 --from-code=https://github.com/openshift-quickstart/openshift-wordpress-developer-quickstart.git`
 
   * Add plugins and themes
-  * Add `.htaccess¡ file
+  * Add `.htaccess` file
   * git add commit push --> automatic deploy
   * Import database with phpmyadmin
 

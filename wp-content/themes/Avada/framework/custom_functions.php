@@ -154,11 +154,12 @@ if( ! function_exists( 'avada_slider' ) ) {
 			}
 
 			$function = 'avada_' . $slider_name;
-                        if( $slider_name == 'wooslider' ) {
-                                $function( $slider, $post_id);
-                        }else{
-	         		$function( $slider );
-                        }
+			//Andi custom pyre_header
+            if( $slider_name == 'wooslider' ) {
+                $function( $slider, $post_id);
+            }else{
+	        	$function( $slider );
+            }
 		}
 	}
 }
@@ -253,6 +254,7 @@ if( ! function_exists( 'avada_elasticslider' ) ) {
 }
 
 if( ! function_exists( 'avada_wooslider' ) ) {
+	//Andi custom pyre_header
 	function avada_wooslider( $term ,$post_id) {
 		global $smof_data;
 
@@ -452,21 +454,22 @@ if( ! function_exists( 'avada_wooslider' ) ) {
 							<li data-mute="<?php echo $data_mute; ?>" data-loop="<?php echo $data_loop; ?>" data-autoplay="<?php echo $data_autoplay; ?>">
 								<div class="slide-content-container slide-content-<?php if ( isset( $metadata['pyre_content_alignment'][0] ) && $metadata['pyre_content_alignment'][0] ) { echo $metadata['pyre_content_alignment'][0]; } ?>" style="display: none;">
 									<div class="slide-content" style="<?php echo $content_max_width; ?>">
-<?php
 
-$custom_fields = get_post_custom($post_id);
-?>
-										<?php if( isset ( $metadata['pyre_heading'][0] ) && $metadata['pyre_heading'][0] ||($custom_fields['wpcf-use_custom_header'][0] == 1)): ?>
-		
-<?php 
+									<?php
+									//Andi custom pyre_header
+									$custom_fields = get_post_custom($post_id);
+									?>
+																			<?php if( isset ( $metadata['pyre_heading'][0] ) && $metadata['pyre_heading'][0] ||($custom_fields['wpcf-use_custom_header'][0] == 1)): ?>
+											
+									<?php 
 
 
-if ($custom_fields['wpcf-use_custom_header'][0] == 1){
-    $header_content = $custom_fields['wpcf-pyre_custom_header'][0];
-}else{
-    $header_content = $metadata['pyre_heading'][0];
-}
-?>
+									if ($custom_fields['wpcf-use_custom_header'][0] == 1){
+									    $header_content = $custom_fields['wpcf-pyre_custom_header'][0];
+									}else{
+									    $header_content = $metadata['pyre_heading'][0];
+									}
+									?>
 
 <div class="heading <?php if($heading_bg): echo 'with-bg'; endif; ?>"><h2 style="<?php echo $heading_bg; ?><?php echo $heading_color; ?><?php echo $heading_font_size; ?>"><?php echo do_shortcode($header_content  ); ?></h2></div>
 										<?php endif; ?>

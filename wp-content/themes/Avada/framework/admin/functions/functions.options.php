@@ -3890,12 +3890,12 @@ $of_options = array();
 			"id" => "button_gradient_bottom_color",
 			"std" => "#a0ce4e",
 			"type" => "color");
-
-                $of_options[] = array( "name" => __("Button Hover Border Color", "Avada"),
-                        "desc" => __("Set Button Hover Border Color.", "Avada"),
-                        "id" => "button_hover_color_border",
-                        "std" => "#000000",
-                        "type" => "color");
+		//Andi custom button border on hover
+        $of_options[] = array( "name" => __("Button Hover Border Color", "Avada"),
+            "desc" => __("Set Button Hover Border Color.", "Avada"),
+            "id" => "button_hover_color_border",
+            "std" => "#000000",
+            "type" => "color");
 
 		$of_options[] = array( "name" => __("Button Gradient Top Hover Color", "Avada"),
 			"desc" => __("Set the top hover color of the button background.", "Avada"),

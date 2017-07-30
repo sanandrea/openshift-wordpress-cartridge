@@ -13,7 +13,7 @@ add_action('wp_head', 'wpse_43672_wp_head');
 function wpse_43672_wp_head(){
     //Close PHP tags 
     ?>
-    <meta name="google-site-verification" content="zmN0vhjamY1PnIeIbLrGFgA_JMVcaQUCQxal-s1-kGM" />
+    <meta name="google-site-verification" content="v4xcYjxCwzKAnGLlN4UzlljoIRdVPhuQn72uGC0ZKIs" />
     <?php //Open PHP tags
 }
 

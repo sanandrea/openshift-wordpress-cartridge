@@ -31,7 +31,7 @@ if (getenv('OPENSHIFT_APP_NAME') != "") {
 	/** MySQL hostname */
 	define('DB_HOST', getenv('OPENSHIFT_MYSQL_DB_HOST') . ':' . getenv('OPENSHIFT_MYSQL_DB_PORT'));
 
-/** These settings can be configured for NEW Openshift 3 platform */
+/**  These settings can be configured for NEW Openshift 3 platform */
 } elseif (getenv('OPENSHIFT_APP_V3')){
 	/** The name of the database for WordPress */
 	define('DB_NAME', 'wordpress');

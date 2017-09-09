@@ -1,6 +1,6 @@
 #!/bin/bash
-chown -R ec2-user:apache /var/www/html/WordPress
-find /var/www/html -type f -exec chmod -R 644 {} \;
-find /var/www/html -type d -exec chmod -R 754 {} \;
-chown -R root:root /var/www/html/scripts
-chmod -R 750 /var/www/html/scripts 
+sudo chown -R apache /var/www
+sudo chgrp -R apache /var/www
+sudo chmod 2775 /var/www
+find /var/www -type d -exec sudo chmod 2775 {} \;
+find /var/www -type f -exec sudo chmod 0664 {} \;

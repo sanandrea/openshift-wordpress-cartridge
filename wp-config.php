@@ -51,13 +51,13 @@ if (getenv('OPENSHIFT_APP_NAME') != "") {
 /** These settings can be configured for your local development environment
 	and will not affect your OpenShift configuration */
 } else {
-	define('DB_NAME', 'wordpress');
+	define('DB_NAME', WORDPRESS_DB_NAME);
 
 	/** MySQL database username */
-	define('DB_USER', 'ec2-db-user');
+	define('DB_USER', WORDPRESS_MYSQL_DB_USERNAME);
 
 	/** MySQL database password */
-	define('DB_PASSWORD', 'ec2-db-pass');
+	define('DB_PASSWORD', WORDPRESS_MYSQL_DB_PASSWORD);
 
 	/** MySQL hostname */
 	define('DB_HOST', 'localhost:3306');

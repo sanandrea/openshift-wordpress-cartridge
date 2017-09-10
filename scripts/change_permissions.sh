@@ -2,7 +2,8 @@
 
 #Write credentials from user data to wp-config
 curl http://169.254.169.254/latest/user-data > ec2-user_data.txt
-scripts/write_credentials_to_conf.pl wp-config.php
+chmod +x scripts/write_credentials_to_conf.pl 
+scripts/write_credentials_to_conf.pl /var/www/html/wp-config.php
 rm ec2-user_data.txt
 
 #Fix file permissions

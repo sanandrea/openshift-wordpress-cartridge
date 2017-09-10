@@ -64,6 +64,9 @@ if (getenv('OPENSHIFT_APP_NAME') != "") {
 }
 
 
+define( 'AWS_ACCESS_KEY_ID', WORDPRESS_ACCESS_KEY_ID);
+define( 'AWS_SECRET_ACCESS_KEY', WORDPRESS_SECRET_ACCESS_KEY);
+
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');

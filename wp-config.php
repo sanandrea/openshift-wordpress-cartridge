@@ -17,40 +17,8 @@
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 
-/** These settings are automatically used on your OpenShift Gear*/
-if (getenv('OPENSHIFT_APP_NAME') != "") {
-	/** The name of the database for WordPress */
-	define('DB_NAME', getenv('OPENSHIFT_APP_NAME'));
-
-	/** MySQL database username */
-	define('DB_USER', getenv('OPENSHIFT_MYSQL_DB_USERNAME'));
-
-	/** MySQL database password */
-	define('DB_PASSWORD', getenv('OPENSHIFT_MYSQL_DB_PASSWORD'));
-
-	/** MySQL hostname */
-	define('DB_HOST', getenv('OPENSHIFT_MYSQL_DB_HOST') . ':' . getenv('OPENSHIFT_MYSQL_DB_PORT'));
-
-/**  These settings can be configured for NEW Openshift 3 platform */
-} elseif (getenv('OPENSHIFT_APP_V3')){
-	/** The name of the database for WordPress */
-	define('DB_NAME', 'wordpress');
-
-	/** MySQL database username */
-	define('DB_USER', getenv('OPENSHIFT_MYSQL_DB_USERNAME'));
-
-	/** MySQL database password */
-	define('DB_PASSWORD', getenv('OPENSHIFT_MYSQL_DB_PASSWORD'));
-
-
-	/** Look at this video for the following
-	    https://www.youtube.com/watch?v=LlBYqI3XsKo*/
-	define('FS_METHOD', 'direct');
-
-	define('DB_HOST', getenv('MYSQL_SERVICE_HOST') . ':' . getenv('MYSQL_SERVICE_PORT'));
-/** These settings can be configured for your local development environment
-	and will not affect your OpenShift configuration */
-} else {
+/** These settings are automatically used on your EC2*/
+if (getenv('EC2_HOME') != "") {
 	define('DB_NAME', WORDPRESS_DB_NAME);
 
 	/** MySQL database username */
@@ -61,6 +29,18 @@ if (getenv('OPENSHIFT_APP_NAME') != "") {
 
 	/** MySQL hostname */
 	define('DB_HOST', 'localhost:3306');
+
+} else {
+	define('DB_NAME', 'website');
+
+	/** MySQL database username */
+	define('DB_USER', 'root');
+
+	/** MySQL database password */
+	define('DB_PASSWORD', 'root');
+
+	/** MySQL hostname */
+	define('DB_HOST', 'localhost:8889');
 }
 
 

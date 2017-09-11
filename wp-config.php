@@ -18,7 +18,7 @@
 /** The name of the database for WordPress */
 
 /** These settings are automatically used on your EC2*/
-if (getenv('EC2_HOME') != "") {
+if (getenv('dev') == "") {
 	define('DB_NAME', WORDPRESS_DB_NAME);
 
 	/** MySQL database username */

@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-open my $fh, '<', './ec2-user_data.txt' or die "Unable to open file:$!\n";
+open my $fh, '<', '/var/www/html/scripts/ec2-user_data.txt' or die "Unable to open file:$!\n";
 my %hash = map { split /=|\s+/; } <$fh>;
 close $fh;
 

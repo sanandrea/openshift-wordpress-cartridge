@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-open my $fh, '<', '/var/www/html/scripts/ec2-user_data.txt' or die "Unable to open file:$!\n";
+open my $fh, '<', '/opt/bitnami/apps/wordpress/htdocs/scripts/ec2-user_data.txt' or die "Unable to open file:$!\n";
 my %hash = map { split /=|\s+/; } <$fh>;
 close $fh;
 

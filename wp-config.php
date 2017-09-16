@@ -63,14 +63,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'put your unique phrase here');
-define('SECURE_AUTH_KEY',  'put your unique phrase here');
-define('LOGGED_IN_KEY',    'put your unique phrase here');
-define('NONCE_KEY',        'put your unique phrase here');
-define('AUTH_SALT',        'put your unique phrase here');
-define('SECURE_AUTH_SALT', 'put your unique phrase here');
-define('LOGGED_IN_SALT',   'put your unique phrase here');
-define('NONCE_SALT',       'put your unique phrase here');
+define('AUTH_KEY', 'c609e0c917c13a58e8817604918783d3256c409d98729801c0196fb77efbf4a8');
+define('SECURE_AUTH_KEY', '0179898a2761fcdb5e8b3b93ff9a51b679108ce29a386bcbafed37b48671ff7b');
+define('LOGGED_IN_KEY', '491615ff3e3639c0c6313f33a3bee1a459a2231e0bf7bd4e130367593aa70add');
+define('NONCE_KEY', '59d34116f47506ca1bf2c76aa50f4ede5cac00e628d296eed814910785424609');
+define('AUTH_SALT', '1c69ca238c16598b11eb73064b1c536d18cfb05c3f4370e07b4061baafc98ec7');
+define('SECURE_AUTH_SALT', 'caedb526162461888e9c1533bc8e485d1eaa6e55828d7d9d61294aaf5abb8d6e');
+define('LOGGED_IN_SALT', 'dc190ddcd4eee2be30b263da47da4d3a6c56fe8d910feb4626988f9e32faa85c');
+define('NONCE_SALT', 'c44e2cad0ba7fb5549992779ab0a139fda5909f8ccf0f6d94576fa983b3c0e3f');
 
 /**#@-*/
 
@@ -109,3 +109,23 @@ if ( !defined('ABSPATH') )
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
+
+
+define('WP_TEMP_DIR', '/opt/bitnami/apps/wordpress/tmp');
+
+
+define('FS_METHOD', 'direct');
+
+//  Disable pingback.ping xmlrpc method to prevent Wordpress from participating in DDoS attacks
+//  More info at: https://docs.bitnami.com/?page=apps&name=wordpress&section=how-to-re-enable-the-xml-rpc-pingback-feature
+
+// remove x-pingback HTTP header
+add_filter('wp_headers', function($headers) {
+    unset($headers['X-Pingback']);
+    return $headers;
+});
+// disable pingbacks
+add_filter( 'xmlrpc_methods', function( $methods ) {
+        unset( $methods['pingback.ping'] );
+        return $methods;
+});
